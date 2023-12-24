@@ -39,6 +39,7 @@ map [f            <Action>(MethodUp)
 map ]f            <Action>(MethodDown)
 map ]h            <Action>(VcsShowNextChangeMarker)
 map [h            <Action>(VcsShowPrevChangeMarker)
+vmap <C-Space>    <Action>(EditorSelectWord) "Extend Selection
 
 " Unfortunately this won't work:
 "map <C-n> <Action>(EditorDown)
