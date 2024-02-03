@@ -3,45 +3,45 @@ let mapleader = " "
 set visualbell
 set ignorecase
 set incsearch
+set number relativenumber
 
 Plug 'tpope/vim-surround'
 
-map <Esc>         <Action>(HideActiveWindow)
-map <S-l>         <Action>(NextTab)
-map <S-h>         <Action>(PreviousTab)
-map <leader>wv    <Action>(SplitVertically)
-map <leader>ws    <Action>(SplitHorizontally)
-map <C-h>         <Action>(NextSplitter)
-map <C-l>         <Action>(PrevSplitter)
-map <leader>wd    <Action>(Unsplit)
-map gr            <Action>(FindUsages)
-map gh            <Action>(ShowHoverInfo)
-map gI            <Action>(GotoImplementation)
-map <leader>bd    <Action>(CloseContent)
-map <leader>bad   <Action>(CloseAllEditors)
-map <leader>ca    <Action>(ShowIntentionActions)
-map <leader>cg    <Action>(Generate)
-map <leader>cf    <Action>(ReformatCode)
-map <leader>cr    <Action>(RenameElement)
-map <leader>e     <Action>(ActivateProjectToolWindow)
-map <leader>ff    <Action>(GotoFile)
-map <leader>fr    <Action>(RecentFiles)
-map <leader>ft    <Action>(ActivateTerminalToolWindow)
-map <leader>gc    <Action>(Vcs.Show.Log)
-map <leader>ghd   <Action>(Compare.SameVersion)
-map <leader>gs    <Action>(Vcs.Show.Local.Changes)
-map <leader>sd    <Action>(ActivateProblemsViewToolWindow)
-map <leader>sg    <Action>(FindInPath)
-map <leader>ss    <Action>(FileStructurePopup)
-map [e            <Action>(GotoPreviousError)
-map ]e            <Action>(GotoNextError)
-map [f            <Action>(MethodUp)
-map ]f            <Action>(MethodDown)
-map ]h            <Action>(VcsShowNextChangeMarker)
-map [h            <Action>(VcsShowPrevChangeMarker)
-vmap <C-Space>    <Action>(EditorSelectWord) "Extend Selection
-
 " Unfortunately this won't work:
 "map <C-n> <Action>(EditorDown)
-" Go to Settings/Keymap/Editor Actions/Down > Add Keyboard Shortcut
+" Go to Settings > Keymap > Editor Actions > Down > Add Keyboard Shortcut
 " Same for EditorUp
+
+map gr <Action>(FindUsages)
+map gh <Action>(ShowHoverInfo)
+map gI <Action>(GotoImplementation)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cf <Action>(ReformatCode)
+map <leader>cg <Action>(Generate)
+map <leader>cr <Action>(RenameElement)
+map <leader>D <Action>(GotoTypeDeclaration)
+map <leader>ds <Action>(FileStructurePopup)
+imap <C-Space> <Action>(CodeCompletion)
+
+map <leader>sf <Action>(GotoFile)
+map <leader>? <Action>(RecentFiles)
+map <leader>sg <Action>(FindInPath)
+
+map <leader>gd <Action>(Compare.SameVersion)
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
+
+map <Esc> <Action>(HideActiveWindow)
+map <S-l> <Action>(NextTab)
+map <S-h> <Action>(PreviousTab)
+map <leader>bd <Action>(CloseContent)
+map <leader>bad <Action>(CloseAllEditors)
+map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>ft <Action>(ActivateTerminalToolWindow)
+map <leader>sd <Action>(ActivateProblemsViewToolWindow)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
+map [m <Action>(MethodUp)zz
+map ]m <Action>(MethodDown)zz
+" Extend selection
+map <C-Space>     <Action>(EditorSelectWord)
