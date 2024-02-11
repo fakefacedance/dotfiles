@@ -25,6 +25,9 @@ magenta = '#a47de9'
 cyan    = '#99faf2'
 white   = '#ffffff'
 
+[cursor.style]
+blinking = "Always"
+
 [env]
 TERM = "xterm-256color"
 
