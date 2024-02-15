@@ -56,7 +56,8 @@ save_to_clipboard = true
 
 [window]
 opacity = 0.95
-startup_mode = "Fullscreen"
+startup_mode = "Maximized"
+decorations = "None"
 
 [window.dimensions]
 columns = 130
