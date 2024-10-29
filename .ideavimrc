@@ -2,18 +2,19 @@ let mapleader = " "
 
 set visualbell
 set ignorecase
+set smartcase
 set incsearch
 set number relativenumber
+set clipboard=unnamedplus
 
-Plug 'tpope/vim-surround'
-
-" Unfortunately this won't work:
-"map <C-n> <Action>(EditorDown)
-" Go to Settings > Keymap > Editor Actions > Down > Add Keyboard Shortcut
-" Same for EditorUp
+set surround
+set NERDTree "https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+set which-key
+set notimeout
+let g:WhichKey_DefaultDelay = 0
 
 map gr <Action>(FindUsages)
-map gh <Action>(ShowHoverInfo)
+map <S-k> <Action>(ShowHoverInfo)
 map gI <Action>(GotoImplementation)
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cf <Action>(ReformatCode)
@@ -27,21 +28,50 @@ map <leader>sf <Action>(GotoFile)
 map <leader>? <Action>(RecentFiles)
 map <leader>sg <Action>(FindInPath)
 
-map <leader>gd <Action>(Compare.SameVersion)
+map <leader>tb <Action>(GitToolBox.ShowInlineBlame)
+" map <leader>gd <Action>(Compare.SameVersion)
 map ]c <Action>(VcsShowNextChangeMarker)
 map [c <Action>(VcsShowPrevChangeMarker)
 
-map <Esc> <Action>(HideActiveWindow)
+" map <Esc> <Action>(HideActiveWindow)
 map <S-l> <Action>(NextTab)
 map <S-h> <Action>(PreviousTab)
 map <leader>bd <Action>(CloseContent)
-map <leader>bad <Action>(CloseAllEditors)
+map <leader>ba <Action>(CloseAllEditors)
 map <leader>e <Action>(ActivateProjectToolWindow)
-map <leader>ft <Action>(ActivateTerminalToolWindow)
+" map <leader>ft <Action>(ActivateTerminalToolWindow)
 map <leader>sd <Action>(ActivateProblemsViewToolWindow)
 map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 map [m <Action>(MethodUp)zz
 map ]m <Action>(MethodDown)zz
+map <A-j> <Action>(MoveStatementDown)
+map <A-k> <Action>(MoveStatementUp)
 " Extend selection
-map <C-Space>     <Action>(EditorSelectWord)
+map <C-Space> <Action>(EditorSelectWord)
+
+let g:WhichKeyDesc_focus_project_tree = "<leader>e Focus Project Tree"
+
+let g:WhichKeyDesc_code = "<leader>c [C]ode"
+let g:WhichKeyDesc_document = "<leader>d [D]ocument"
+let g:WhichKeyDesc_search = "<leader>s [S]earch"
+let g:WhichKeyDesc_toggle = "<leader>t [T]oggle"
+
+let g:WhichKeyDesc_code_action = "<leader>ca [C]ode [A]ction"
+let g:WhichKeyDesc_code_rename = "<leader>cr [C]ode: [R]ename"
+let g:WhichKeyDesc_code_format = "<leader>cf [C]ode: [F]ormat"
+
+let g:WhichKeyDesc_recent_files = "<leader>? Search Recent Files"
+let g:WhichKeyDesc_diagnostics = "<leader>sd [S]earch [D]iagnostics"
+let g:WhichKeyDesc_search_by_grep = "<leader>sg [S]earch by [G]rep"
+let g:WhichKeyDesc_search_files = "<leader>sf [S]earch [F]iles"
+
+let g:WhichKeyDesc_lsp_type_declaration = "<leader>D [G]oto [D]eclaration"
+let g:WhichKeyDesc_lsp_implementation = "gI [G]oto [I]mplementation"
+let g:WhichKeyDesc_lsp_references = "gr [G]oto [R]eferences"
+
+let g:WhichKeyDesc_toggle = "<leader>tb [T]oggle [B]lame Line"
+
+let g:WhichKeyDesc_tabs_management = "<leader>b Tabs"
+let g:WhichKeyDesc_close_current_tab = "<leader>bd Close Tab"
+let g:WhichKeyDesc_close_all_tabs = "<leader>ba Close All Tabs"
